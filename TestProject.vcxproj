@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{00DE25B8-315F-4B8F-AD02-AE645D6B1F56}</ProjectGuid>
+    <ProjectName>HelmutMobil</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeIncludeSearchPath>c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\opt\vc\include;c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\opt\vc\include\interface\vmcs_host\linux;c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\opt\vc\include\interface\vcos\pthreads;c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\local\include;c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\root\rpi_ws281x;c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\root\pstreams;c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\4.6;c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\4.6\arm-linux-gnueabihf;c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\4.6\backward;c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\4.6\include;c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\4.6\include-fixed;c:\sysgcc\raspberry\arm-linux-gnueabihf\include;c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf;c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes>$(ProjectDir)\gcc_Debug.h;$(VISUALGDB_DIR)\gcc_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)TestProject-Debug.vgdbsettings</NMakeOutput>
+    <IncludePath />
+    <ReferencePath />
+    <LibraryPath />
+    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Debug;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeIncludeSearchPath>c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\opt\vc\include;c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\opt\vc\include\interface\vcos\pthreads;c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\local\include;c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\4.6;c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\4.6\arm-linux-gnueabihf;c:\sysgcc\raspberry\arm-linux-gnueabihf\include\c++\4.6\backward;c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\4.6\include;c:\sysgcc\raspberry\lib\gcc\arm-linux-gnueabihf\4.6\include-fixed;c:\sysgcc\raspberry\arm-linux-gnueabihf\include;c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf;c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot\usr\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes>$(ProjectDir)\gcc_Release.h;$(VISUALGDB_DIR)\gcc_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
+    <NMakeOutput>$(ProjectDir)TestProject-Release.vgdbsettings</NMakeOutput>
+    <IncludePath />
+    <ReferencePath />
+    <LibraryPath />
+    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Release;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Abstand.cpp" />
+    <ClCompile Include="Arduino.cpp" />
+    <ClCompile Include="BootScreen.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="Control.cpp" />
+    <ClCompile Include="Core.cpp" />
+    <ClCompile Include="GraphicsHelper.cpp" />
+    <ClCompile Include="GUI.cpp" />
+    <ClCompile Include="joystick.cpp" />
+    <ClCompile Include="JoystickWrapper.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
+    <ClCompile Include="LED.cpp" />
+    <ClCompile Include="PID.cpp" />
+    <ClCompile Include="SignalHandler.cpp" />
+    <ClCompile Include="Speedometer.cpp" />
+    <ClCompile Include="TestProject.cpp" />
+    <ClCompile Include="ThreadManager.cpp" />
+    <ClCompile Include="TouchScreen.cpp" />
+    <ClCompile Include="VGHelper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="debug.mak" />
+    <None Include="Makefile" />
+    <None Include="release.mak" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Abstand.h" />
+    <ClInclude Include="Arduino.h" />
+    <ClInclude Include="BootScreen.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Control.h" />
+    <ClInclude Include="Core.h" />
+    <ClInclude Include="GlobalVars.h" />
+    <ClInclude Include="GraphicsHelper.h" />
+    <ClInclude Include="GUI.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="joystick.h" />
+    <ClInclude Include="JoystickWrapper.h" />
+    <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="LED.h" />
+    <ClInclude Include="PID.h" />
+    <ClInclude Include="SignalHandler.h" />
+    <ClInclude Include="Speedometer.h" />
+    <ClInclude Include="ThreadManager.h" />
+    <ClInclude Include="TouchScreen.h" />
+    <ClInclude Include="VGHelper.h" />
+    <ClInclude Include="_CompileFlags.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
