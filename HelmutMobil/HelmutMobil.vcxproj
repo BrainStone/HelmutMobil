@@ -78,7 +78,6 @@
     <ClCompile Include="PID.cpp" />
     <ClCompile Include="SignalHandler.cpp" />
     <ClCompile Include="Speedometer.cpp" />
-    <ClCompile Include="TestProject.cpp" />
     <ClCompile Include="ThreadManager.cpp" />
     <ClCompile Include="TouchScreen.cpp" />
     <ClCompile Include="VGHelper.cpp" />

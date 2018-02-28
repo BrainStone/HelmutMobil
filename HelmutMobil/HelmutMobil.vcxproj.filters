@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Abstand.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Arduino.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="BootScreen.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Control.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsHelper.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="joystick.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="JoystickWrapper.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="LED.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="PID.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SignalHandler.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Speedometer.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadManager.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="TouchScreen.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="VGHelper.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Abstand.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="_CompileFlags.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Arduino.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="BootScreen.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Control.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalVars.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsHelper.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="joystick.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="JoystickWrapper.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="LED.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="PID.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SignalHandler.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Speedometer.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadManager.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="TouchScreen.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="VGHelper.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+    <None Include="release.mak">
+      <Filter>Make files</Filter>
+    </None>
+    <None Include="debug.mak">
+      <Filter>Make files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Resource files">
+      <UniqueIdentifier>{7fd50cb8-6788-4df9-a317-88bf8960c4b8}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Header files">
+      <UniqueIdentifier>{27e09628-a478-4027-9deb-e6f340e959e1}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{2a205e89-d6ac-4d02-ad20-c08df79858ce}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Make files">
+      <UniqueIdentifier>{ad779e28-b533-419f-8568-f0c392250e3c}</UniqueIdentifier>
+      <Extensions>*.mak</Extensions>
+    </Filter>
+  </ItemGroup>
+</Project>
