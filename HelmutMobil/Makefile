@@ -23,7 +23,7 @@ error:
 	$(error Invalid configuration, please check your inputs)
 endif
 
-SOURCEFILES := Abstand.cpp Arduino.cpp BootScreen.cpp Button.cpp Config.cpp Control.cpp Core.cpp GraphicsHelper.cpp GUI.cpp joystick.cpp JoystickWrapper.cpp Keyboard.cpp LED.cpp PID.cpp SignalHandler.cpp Speedometer.cpp TestProject.cpp ThreadManager.cpp TouchScreen.cpp VGHelper.cpp
+SOURCEFILES := Abstand.cpp Arduino.cpp BootScreen.cpp Button.cpp Config.cpp Control.cpp Core.cpp GraphicsHelper.cpp GUI.cpp joystick.cpp JoystickWrapper.cpp Keyboard.cpp LED.cpp PID.cpp SignalHandler.cpp Speedometer.cpp ThreadManager.cpp TouchScreen.cpp VGHelper.cpp
 EXTERNAL_LIBS := 
 EXTERNAL_LIBS_COPIED := $(foreach lib, $(EXTERNAL_LIBS),$(BINARYDIR)/$(notdir $(lib)))
 

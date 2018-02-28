@@ -221,8 +221,6 @@
 //c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/opt/vc/include/interface/vmcs_host/linux
 //c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/opt/vc/include/interface/vcos/pthreads
 //c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/usr/local/include
-//c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/root/rpi_ws281x
-//c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/root/pstreams
 //c:\sysgcc\raspberry\bin\../lib/gcc/arm-linux-gnueabihf/4.6/../../../../arm-linux-gnueabihf/include/c++/4.6
 //c:\sysgcc\raspberry\bin\../lib/gcc/arm-linux-gnueabihf/4.6/../../../../arm-linux-gnueabihf/include/c++/4.6/arm-linux-gnueabihf
 //c:\sysgcc\raspberry\bin\../lib/gcc/arm-linux-gnueabihf/4.6/../../../../arm-linux-gnueabihf/include/c++/4.6/backward

@@ -13,9 +13,9 @@ OBJCOPY := C:/SysGCC/raspberry/bin/arm-linux-gnueabihf-objcopy.exe
 
 #Additional flags
 PREPROCESSOR_MACROS := DEBUG
-INCLUDE_DIRS := c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/opt/vc/include c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/opt/vc/include/interface/vmcs_host/linux c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/opt/vc/include/interface/vcos/pthreads c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/usr/local/include c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/root/rpi_ws281x c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/root/pstreams
-LIBRARY_DIRS := c:\sysgcc\raspberry\arm-linux-gnueabihf\sysroot/opt/vc/lib
-LIBRARY_NAMES := GLESv2 EGL bcm_host wiringPi pthread jpeg shapes boost_thread boost_system boost_chrono boost_date_time boost_filesystem ws2811 config++
+INCLUDE_DIRS := c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/opt/vc/include c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/opt/vc/include/interface/vmcs_host/linux c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/opt/vc/include/interface/vcos/pthreads c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/usr/local/include
+LIBRARY_DIRS := c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/opt/vc/lib c:/sysgcc/raspberry/arm-linux-gnueabihf/sysroot/usr/local/lib
+LIBRARY_NAMES := GLESv2 EGL bcm_host wiringPi pthread jpeg shapes boost_thread boost_system boost_chrono boost_date_time boost_filesystem config++ ws2811
 ADDITIONAL_LINKER_INPUTS := 
 MACOS_FRAMEWORKS := 
 LINUX_PACKAGES := 
