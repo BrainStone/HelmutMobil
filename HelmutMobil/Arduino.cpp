@@ -320,7 +320,7 @@ void Arduino::I2CWriteReg8( int reg, int data ) {
 void Arduino::I2CWriteReg16( int reg, int data ) {
 	I2CLock.lock();
 
-	wiringPiI2CWriteReg8( I2Cfd, reg, data );
+	wiringPiI2CWriteReg16( I2Cfd, reg, data );
 
 	I2CLock.unlock();
 
