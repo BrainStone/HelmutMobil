@@ -14,10 +14,6 @@
 
 // Functions
 
-void Text( VGfloat x, VGfloat y, const char* text, Fontinfo font, int fontSize );
-void TextMid( VGfloat x, VGfloat y, const char* text, Fontinfo font, int fontSize );
-void TextEnd( VGfloat x, VGfloat y, const char* text, Fontinfo font, int fontSize );
-
 void Text( VGfloat x, VGfloat y, const std::string& text, Fontinfo font, int fontSize );
 void TextMid( VGfloat x, VGfloat y, const std::string& text, Fontinfo font, int fontSize );
 void TextEnd( VGfloat x, VGfloat y, const std::string& text, Fontinfo font, int fontSize );
