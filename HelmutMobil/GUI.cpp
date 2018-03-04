@@ -10,7 +10,7 @@ int GUI::width, GUI::height;
 VGfloat GUI::percentage;
 bool GUI::shouldRenderBestaetigung = false;
 bool GUI::shuttingDown = false;
-char* GUI::imageFilename = "/hm/logo_helmutmobil_small.jpg";
+const char* GUI::imageFilename = "/hm/logo_helmutmobil_small.jpg";
 
 double ausschaltenWidth;
 
@@ -300,6 +300,8 @@ void GUI::GUILoop( const ThreadManager* thread ) {
 	init( &width, &height );
 
 	ausschaltenWidth = TextWidth( "Wird heruntergefahren!", SansTypeface, 30 ) + 25.0;
+
+
 
 	herunterfahrenButton = new ButtonCustomRender( renderOffButton, width - 110, height - 110, 100, 100 );
 	herunterfahrenButton->addEventCallback( herunterfahrenButtonCallback );

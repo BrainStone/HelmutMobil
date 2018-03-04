@@ -28,7 +28,7 @@ private:
 	static VGfloat percentage;
 	static bool shouldRenderBestaetigung;
 	static bool shuttingDown;
-	static char* imageFilename;
+	static const char* imageFilename;
 	static const int imageWidth = 528;
 	static const int imageHeight = 151;
 
