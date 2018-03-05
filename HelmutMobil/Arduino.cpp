@@ -142,7 +142,7 @@ void Arduino::gyroThread( const ThreadManager* threadManager ) {
 
 	const uint8_t out = 0x3B;
 	uint8_t* const in = new uint8_t[14];
-	boost::circular_buffer<arduino_int> valuesGYRO_TEMP(128);
+	boost::circular_buffer<arduino_int> valuesGYRO_TEMP( 128 );
 
 	while ( threadManager->getShouldRun() ) {
 		write( Gyrofd, &out, 1 );
@@ -180,6 +180,10 @@ void Arduino::I2CThread( const ThreadManager* threadManager ) {
 	unsigned int i;
 
 	for ( i = 0; (i < 10) && (wiringPiI2CReadReg16( I2Cfd, I2CPOTI1 ) == -1); i++ ) {
+		if ( errno != 0 ) {
+			cerr << errno << ": " << strerror( errno ) << endl;
+		}
+
 		if ( i == 9 ) {
 			displayError( "No connection to the I2C Arduino!" );
 			threadManager->ready();
@@ -343,7 +347,7 @@ int Arduino::I2CReadReg8( int reg ) {
 }
 
 int Arduino::I2CReadReg16( int reg ) {
-	int out(0);
+	int out( 0 );
 	I2CLock.lock();
 
 	write( I2Cfd, &reg, 1 );
