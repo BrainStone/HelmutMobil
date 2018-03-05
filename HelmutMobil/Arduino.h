@@ -83,14 +83,6 @@ public:
 	static const byte POTI1 = 0x00;
 	static const byte POTI2 = 0x01;
 	static const byte POTI3 = 0x02;
-	static const byte ONB_TEMP = 0x03;
-	static const byte GYRO_AcX = 0x04;
-	static const byte GYRO_AcY = 0x05;
-	static const byte GYRO_AcZ = 0x06;
-	static const byte GYRO_TEMP = 0x07;
-	static const byte GYRO_GyX = 0x08;
-	static const byte GYRO_GyY = 0x09;
-	static const byte GYRO_GyZ = 0x0A;
 	static const byte DROSSEL = 0x0B;
 	static const byte POWEROFF = 0x0C;
 
@@ -100,10 +92,14 @@ public:
 	static const byte I2CAddress = 0x4E;
 	static const byte FLAG_PWM = 0x80;
 
-	static const byte I2CLAMP = 13;
-	static const byte I2CPOTI1 = 15;	// A1
-	static const byte I2CPOTI2 = 16;	// A2
-	static const byte I2CPOTI3 = 17;	// A3
+	static const byte I2C_STEERING_ENABLE = 8;
+	static const byte I2C_STEERING_RIGHT = 9;
+	static const byte I2C_STEERING_LEFT = 10;
+	static const byte I2C_STEERING_PWM = 11 | FLAG_PWM;
+	static const byte I2C_LAMP = 13;
+	static const byte I2C_POTI1 = 15;	// A1
+	static const byte I2C_POTI2 = 16;	// A2
+	static const byte I2C_POTI3 = 17;	// A3
 
 	static arduino_int valuePOTI1;
 	static arduino_int valuePOTI2;

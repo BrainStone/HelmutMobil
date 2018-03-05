@@ -179,7 +179,7 @@ void Arduino::I2CThread( const ThreadManager* threadManager ) {
 
 	unsigned int i;
 
-	for ( i = 0; (i < 10) && (wiringPiI2CReadReg16( I2Cfd, I2CPOTI1 ) == -1); i++ ) {
+	for ( i = 0; (i < 10) && (wiringPiI2CReadReg16( I2Cfd, I2C_POTI1 ) == -1); i++ ) {
 		if ( errno != 0 ) {
 			cerr << errno << ": " << strerror( errno ) << endl;
 		}
@@ -197,7 +197,7 @@ void Arduino::I2CThread( const ThreadManager* threadManager ) {
 	usleep( 100000 );
 
 	for ( i = 0; i < 10; i++ ) {
-		if ( wiringPiI2CWriteReg8( I2Cfd, I2CLAMP, ~i & 1 ) == -1 ) {
+		if ( wiringPiI2CWriteReg8( I2Cfd, I2C_LAMP, ~i & 1 ) == -1 ) {
 			displayError( "No connection to the I2C Arduino!" );
 			threadManager->ready();
 
@@ -211,14 +211,14 @@ void Arduino::I2CThread( const ThreadManager* threadManager ) {
 	i = 100;
 
 	while ( threadManager->getShouldRun() ) {
-		readAnalog( valuePOTI1, I2CPOTI1 );
+		readAnalog( valuePOTI1, I2C_POTI1 );
 		usleep( I2CWaitTime );
 
-		readAnalog( valuePOTI2, I2CPOTI2 );
+		readAnalog( valuePOTI2, I2C_POTI2 );
 		usleep( I2CWaitTime );
 
 		if ( i >= 100 ) {
-			readAnalog( valuePOTI3, I2CPOTI3 );
+			readAnalog( valuePOTI3, I2C_POTI3 );
 
 			POTI3Values.push_back( valuePOTI3 );
 

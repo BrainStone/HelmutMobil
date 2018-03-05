@@ -114,8 +114,10 @@ void MotorControler( const ThreadManager* threadManager ) {
 				 (abs( outputLenkung ) < (double)(*config::PID_Lenkung)["AntiPieps"]) )
 				 outputLenkung = 0.0;
 
-			Arduino::I2CWriteReg8( 9 | Arduino::FLAG_PWM, (outputLenkung < 0.0) ? -outputLenkung : 0 );
-			Arduino::I2CWriteReg8( 10 | Arduino::FLAG_PWM, (outputLenkung > 0.0) ? outputLenkung : 0 );
+			Arduino::I2CWriteReg8( Arduino::I2C_STEERING_ENABLE, outputLenkung == 0.0 );
+			Arduino::I2CWriteReg8( Arduino::I2C_STEERING_RIGHT, outputLenkung > 0.0 );
+			Arduino::I2CWriteReg8( Arduino::I2C_STEERING_LEFT, outputLenkung < 0.0 );
+			Arduino::I2CWriteReg8( Arduino::I2C_STEERING_PWM, abs(outputLenkung) );
 		}
 	}
 
@@ -130,8 +132,10 @@ void MotorControler( const ThreadManager* threadManager ) {
 	digitalWrite( pinBremseEnable1, 0 );
 	digitalWrite( pinBremseEnable2, 0 );
 
-	Arduino::I2CWriteReg8( 9 | Arduino::FLAG_PWM, 0 );
-	Arduino::I2CWriteReg8( 10 | Arduino::FLAG_PWM, 0 );
+	Arduino::I2CWriteReg8( Arduino::I2C_STEERING_ENABLE, 0 );
+	Arduino::I2CWriteReg8( Arduino::I2C_STEERING_RIGHT, 0 );
+	Arduino::I2CWriteReg8( Arduino::I2C_STEERING_LEFT, 0 );
+	Arduino::I2CWriteReg8( Arduino::I2C_STEERING_PWM, 0 );
 }
 
 int mapRange( int inMin, int inMax, int outMin, int outMax, int value ) {
