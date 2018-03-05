@@ -12,16 +12,7 @@
 #include "wiringPi.h"
 #include "wiringPiSPI.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-#include <board_info.h>
 #include <ws2811.h>
-
-#ifdef __cplusplus
-}
-#endif
 
 #define LED LEDStreifen::ledstrip.channel[1].leds
 

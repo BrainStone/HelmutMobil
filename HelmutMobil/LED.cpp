@@ -4,6 +4,7 @@ using namespace std;
 
 namespace LEDStreifen {
 	ws2811_t ledstrip = generate_ws2811_t_object( WS2811_TARGET_FREQ, 5, 0, 0, 0, 0, GpioPin, 0, NumLED, 0x7F );
+	ws2811_return_t ret;
 
 	void farbverlauf( double h1, double s1, double v1, double h2, double s2, double v2 ) {
 		const double divisor = NumLED - 1.0;
@@ -41,11 +42,10 @@ namespace LEDStreifen {
 		registerButtonUpEvent( 3, toggleBlinker<false> ); // Rechts
 		registerAxeEvent( 5, fussraumHelligkeit );
 
-		if ( board_info_init() < 0 )
+		if ( (ret = ws2811_init( &ledstrip )) != WS2811_SUCCESS ) {
+			cerr << "ws2811_init failed: %s\n" << ws2811_get_return_t_str( ret ) << endl;
 			return;
-
-		if ( ws2811_init( &ledstrip ) )
-			return;
+		}
 
 		// srand( (unsigned)time( NULL ) );
 		// timet_t start = time( NULL );
@@ -76,19 +76,6 @@ namespace LEDStreifen {
 		const ws2811_led_t warmWhite = hsv2rgb( 31, 0.5, 1 );
 
 		while ( threadManager->getShouldRun() ) {
-			/*if ( ((time( NULL ) - start) / 10) % 2 ) {
-				farbverlauf( offset = randDoubleOpen() * 360.0, randDouble() * 0.25 + 0.75, randDouble() * 0.8 + 0.2,
-				randDoubleOpen() * 360.0, randDouble() * 0.25 + 0.75, randDouble() * 0.8 + 0.2 );
-
-				sleep( 1 );
-				} else {
-				for ( int i = 0; i < NumLED; i++ ) {
-				LED[i] = hsv2rgb( offset + 6.0 * i, 1, 1 );
-				}
-
-				offset = mod( offset - 1, 360 );
-				}*/
-
 			if ( blinkerLinks || blinkerRechts ) {
 				lampValue = mod( (micros() - start) / animationDuration, 1.0 );
 
