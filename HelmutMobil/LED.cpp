@@ -3,7 +3,7 @@
 using namespace std;
 
 namespace LEDStreifen {
-	ws2811_t ledstrip = generate_ws2811_t_object( WS2811_TARGET_FREQ, 5, 0, 0, 0, 0, GpioPin, 0, NumLED, 0x7F );
+	ws2811_t ledstrip = generate_ws2811_t_object( WS2811_TARGET_FREQ, 5, 0, 0, 0, 0, 0, GpioPin, 0, NumLED, WS2812_STRIP, 0x7F );
 	ws2811_return_t ret;
 
 	void farbverlauf( double h1, double s1, double v1, double h2, double s2, double v2 ) {
