@@ -20,8 +20,8 @@ ADDITIONAL_LINKER_INPUTS :=
 MACOS_FRAMEWORKS := 
 LINUX_PACKAGES := 
 
-CFLAGS := -ggdb -ffunction-sections -O3  -std=c++0x -Wno-write-strings
-CXXFLAGS := -ggdb -ffunction-sections -O3  -std=c++0x -Wno-write-strings
+CFLAGS := -ggdb -ffunction-sections -O2 -std=c++0x -arch=native -Wno-write-strings
+CXXFLAGS := -ggdb -ffunction-sections -O2 -std=c++0x -arch=native -Wno-write-strings
 ASFLAGS := 
 LDFLAGS := -Wl,-gc-sections
 COMMONFLAGS := 

@@ -117,12 +117,10 @@
       <EnableAsyncExecutionMode>false</EnableAsyncExecutionMode>
       <EnableNonStopMode>false</EnableNonStopMode>
     </AdditionalGDBSettings>
-    <LaunchGDBSettings xsi:type="GDBLaunchParametersAttach">
+    <LaunchGDBSettings xsi:type="GDBLaunchParametersNewInstance">
       <DebuggedProgram>$(TargetPath)</DebuggedProgram>
       <GDBServerPort>2000</GDBServerPort>
-      <AttachMode>AttachByName</AttachMode>
-      <AutoAttachPID>0</AutoAttachPID>
-      <AutoAttachExecutable>$(TargetPath)</AutoAttachExecutable>
+      <ProgramArguments />
     </LaunchGDBSettings>
     <GenerateCtrlBreakInsteadOfCtrlC>false</GenerateCtrlBreakInsteadOfCtrlC>
     <DeploymentTargetPath />
