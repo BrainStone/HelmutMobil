@@ -1,4 +1,5 @@
-#include <WSWire.h>
+// #include <WSWire.h>
+#include <Wire.h>
 
 // Uncomment this for debugging
 // #define Debug
@@ -13,7 +14,7 @@ enum {
   I2C_RESP_LEN_MAX = 32
 };
 
-int requestedCmd = 0;                   // which command was requested (if any)
+int requestedCmd = -1;                   // which command was requested (if any)
 
 byte i2cArgs[I2C_MSG_ARGS_MAX];         // array to store args received from master
 int i2cArgsLen = 0;                     // how many args passed by master to given command
@@ -26,6 +27,12 @@ extern const byte supportedI2Ccmd[] = {
 };
 
 void setup() {
+#ifdef Debug
+  Serial.begin(9600);
+
+  Serial.println("Starting!");
+#endif // #ifdef Debug
+  
   Wire.begin(ADDRESS);
   Wire.onReceive(receiveEvent);
   Wire.onRequest(requestEvent);
@@ -33,22 +40,19 @@ void setup() {
 
 void loop() {
   delay(1);
-  
+
   if((requestedCmd == -1) || (i2cArgsLen == -1)) {
     return;
   } else if(requestedCmd == -2) {
-#ifdef Debug
-    for(int i = 0; i < 5; i++) {
-      digitalWrite(13, HIGH);
-      delay(100);
-      
-      digitalWrite(13, LOW);
-      delay(100);
-    }
-#endif // #ifdef Debug
-    
     return;
   }
+
+#ifdef Debug
+  Serial.print("loop:\n\trequestedCmd: ");
+  Serial.println(requestedCmd);
+  Serial.print("\ti2cArgsLen: ");
+  Serial.println(i2cArgsLen);
+#endif // #ifdef Debug
   
   boolean pwm = requestedCmd & FLAG_PWM;
   requestedCmd &= ~FLAG_PWM;
@@ -64,6 +68,13 @@ void loop() {
       *(int*)(i2cResponse) = analogRead(requestedCmd);
       i2cResponseLen = 2;
     }
+
+#ifdef Debug
+    Serial.print("\ti2cResponse: ");
+    Serial.println(*(int*)(i2cResponse));
+    Serial.print("\ti2cResponseLen: ");
+    Serial.println(i2cResponseLen);
+#endif // #ifdef Debug
   } else if (i2cArgsLen == 1) {
     if (states[requestedCmd] != OUTPUT)
         pinMode(requestedCmd, OUTPUT);
@@ -82,7 +93,8 @@ void loop() {
 // this function is registered as an event, see setup()
 void receiveEvent(int howMany) {
 #ifdef Debug
-  digitalWrite(13, HIGH);
+  Serial.print("receiveEvent: ");
+  Serial.println(howMany);
 #endif // #ifdef Debug
   
   int argIndex = 0;
@@ -91,6 +103,11 @@ void receiveEvent(int howMany) {
 
   if (Wire.available()){
     TMPrequestedCmd = Wire.read();         // receive first byte - command assumed
+
+#ifdef Debug
+    Serial.print("Cmd: ");
+    Serial.println(TMPrequestedCmd);
+#endif // #ifdef Debug
     
     while(Wire.available()) {              // receive rest of tramsmission from master assuming arguments to the command
       if (argIndex < I2C_MSG_ARGS_MAX) {
@@ -131,16 +148,23 @@ void receiveEvent(int howMany) {
   // now main loop code should pick up a command to execute and prepare required response when master waits before requesting response
   requestedCmd = TMPrequestedCmd;
   i2cArgsLen = TMPi2cArgsLen;
-  
-#ifdef Debug
-  digitalWrite(13, LOW);
-#endif // #ifdef Debug
 }
 
 // function that executes whenever data is requested by master
 // this function is registered as an event, see setup()
 void requestEvent() {
+  if(i2cResponseLen < 1) {
+    return;
+  }
+  
   Wire.write(i2cResponse, i2cResponseLen);
+
+#ifdef Debug
+  Serial.print("requestEvent:\n\ti2cResponse: ");
+  Serial.println(*(int*)(i2cResponse));
+  Serial.print("\ti2cResponseLen: ");
+  Serial.println(i2cResponseLen);
+#endif // #ifdef Debug
   
   i2cResponseLen = 0;
   
