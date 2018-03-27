@@ -4,7 +4,7 @@
 #define BootScreen_H
 
 #include <atomic>
-#include <boost\thread.hpp>
+#include <boost/thread.hpp>
 #include <cstring>
 #include <string>
 #include <wiringPi.h>

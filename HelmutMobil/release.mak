@@ -20,10 +20,10 @@ ADDITIONAL_LINKER_INPUTS :=
 MACOS_FRAMEWORKS := 
 LINUX_PACKAGES := 
 
-CFLAGS := -ggdb -ffunction-sections -O2 -std=c++0x -arch=native -Wno-write-strings
-CXXFLAGS := -ggdb -ffunction-sections -O2 -std=c++0x -arch=native -Wno-write-strings
+CFLAGS := -ggdb -O2 -march=armv7ve -Wno-write-strings
+CXXFLAGS := $(CFLAGS) -std=c++14
 ASFLAGS := 
-LDFLAGS := -Wl,-gc-sections
+LDFLAGS := 
 COMMONFLAGS := 
 
 START_GROUP := -Wl,--start-group

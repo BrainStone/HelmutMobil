@@ -6,6 +6,7 @@
 #include <boost/circular_buffer.hpp>
 #include <boost/thread.hpp>
 #include <list>
+#include <mutex>
 #include <queue>
 #include <wiringPiI2C.h>
 #include <wiringSerial.h>
@@ -33,7 +34,7 @@ private:
 				lock->unlock();
 				//lock->unlock();
 
-				//delete lock;
+				delete lock;
 			}
 		}
 
@@ -80,26 +81,26 @@ public:
 
 	static void setRelais( int relais, bool value );
 
-	static const byte POTI1 = 0x00;
-	static const byte POTI2 = 0x01;
-	static const byte POTI3 = 0x02;
-	static const byte DROSSEL = 0x0B;
-	static const byte POWEROFF = 0x0C;
+	static constexpr byte POTI1 = 0x00;
+	static constexpr byte POTI2 = 0x01;
+	static constexpr byte POTI3 = 0x02;
+	static constexpr byte DROSSEL = 0x0B;
+	static constexpr byte POWEROFF = 0x0C;
 
-	static const byte START_ECHO_MODE = 0x0E;
-	static const byte END_ECHO_MODE = 0x00;
+	static constexpr byte START_ECHO_MODE = 0x0E;
+	static constexpr byte END_ECHO_MODE = 0x00;
 
-	static const byte I2CAddress = 0x4E;
-	static const byte FLAG_PWM = 0x80;
+	static constexpr byte I2CAddress = 0x4E;
+	static constexpr byte FLAG_PWM = 0x80;
 
-	static const byte I2C_STEERING_ENABLE = 8;
-	static const byte I2C_STEERING_RIGHT = 9;
-	static const byte I2C_STEERING_LEFT = 10;
-	static const byte I2C_STEERING_PWM = 11 | FLAG_PWM;
-	static const byte I2C_LAMP = 13;
-	static const byte I2C_POTI1 = 15;	// A1
-	static const byte I2C_POTI2 = 16;	// A2
-	static const byte I2C_POTI3 = 17;	// A3
+	static constexpr byte I2C_STEERING_ENABLE = 8;
+	static constexpr byte I2C_STEERING_RIGHT = 9;
+	static constexpr byte I2C_STEERING_LEFT = 10;
+	static constexpr byte I2C_STEERING_PWM = 11 | FLAG_PWM;
+	static constexpr byte I2C_LAMP = 13;
+	static constexpr byte I2C_POTI1 = 15;	// A1
+	static constexpr byte I2C_POTI2 = 16;	// A2
+	static constexpr byte I2C_POTI3 = 17;	// A3
 
 	static arduino_int valuePOTI1;
 	static arduino_int valuePOTI2;

@@ -131,14 +131,18 @@ void Arduino::readThread( const ThreadManager* threadManager ) {
 void Arduino::gyroThread( const ThreadManager* threadManager ) {
 	Gyrofd = wiringPiI2CSetup( 0x69 );
 
-	if ( Gyrofd == -1 ) {
+	if ( (Gyrofd == -1) || (wiringPiI2CWriteReg8( Gyrofd, 0x6B, 0 ) == -1) ) {
+		if ( errno != 0 ) {
+			cerr << errno << ": " << strerror( errno ) << endl;
+		}
+
 		displayError( "No connection to the Gyro!" );
 		threadManager->ready();
 
 		return;
 	}
 
-	wiringPiI2CWriteReg8( Gyrofd, 0x6B, 0 );
+	threadManager->ready();
 
 	const uint8_t out = 0x3B;
 	uint8_t* const in = new uint8_t[14];
@@ -171,7 +175,7 @@ void Arduino::I2CThread( const ThreadManager* threadManager ) {
 	I2Cfd = wiringPiI2CSetup( 0x4E );
 
 	if ( I2Cfd == -1 ) {
-		displayError( "No connection to the I2C Arduino!" );
+		displayError( "No connection to the I2C Arduino! 1" );
 		threadManager->ready();
 
 		return;
@@ -185,7 +189,7 @@ void Arduino::I2CThread( const ThreadManager* threadManager ) {
 		}
 
 		if ( i == 9 ) {
-			displayError( "No connection to the I2C Arduino!" );
+			displayError( "No connection to the I2C Arduino! 2" );
 			threadManager->ready();
 
 			return;
@@ -198,7 +202,11 @@ void Arduino::I2CThread( const ThreadManager* threadManager ) {
 
 	for ( i = 0; i < 10; i++ ) {
 		if ( wiringPiI2CWriteReg8( I2Cfd, I2C_LAMP, ~i & 1 ) == -1 ) {
-			displayError( "No connection to the I2C Arduino!" );
+			if ( errno != 0 ) {
+				cerr << errno << ": " << strerror( errno ) << endl;
+			}
+
+			displayError( "No connection to the I2C Arduino! 3" );
 			threadManager->ready();
 
 			return;
@@ -302,7 +310,7 @@ void Arduino::init() {
 		return;
 	}
 
-	threadGyro = new ThreadManager( Arduino::threadGyroID, 99, Arduino::gyroThread );
+	threadGyro = new ThreadManager( Arduino::threadGyroID, 99, Arduino::gyroThread, true );
 }
 
 void Arduino::waitForThreads() {

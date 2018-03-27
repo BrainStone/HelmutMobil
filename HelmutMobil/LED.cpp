@@ -3,7 +3,7 @@
 using namespace std;
 
 namespace LEDStreifen {
-	ws2811_t ledstrip = generate_ws2811_t_object( WS2811_TARGET_FREQ, 5, 0, 0, 0, 0, 0, GpioPin, 0, NumLED, WS2812_STRIP, 0x7F );
+	ws2811_t ledstrip = generate_ws2811_t_object( WS2811_TARGET_FREQ, 10, 0, 0, 0, 0, 0, GpioPin, 0, NumLED, WS2812_STRIP, 0x7F );
 	ws2811_return_t ret;
 
 	void farbverlauf( double h1, double s1, double v1, double h2, double s2, double v2 ) {
@@ -40,7 +40,6 @@ namespace LEDStreifen {
 		registerButtonUpEvent( 0, blinkerAus );
 		registerButtonUpEvent( 2, toggleBlinker<true> ); // Links
 		registerButtonUpEvent( 3, toggleBlinker<false> ); // Rechts
-		registerAxeEvent( 5, fussraumHelligkeit );
 
 		if ( (ret = ws2811_init( &ledstrip )) != WS2811_SUCCESS ) {
 			cerr << "ws2811_init failed: %s\n" << ws2811_get_return_t_str( ret ) << endl;
@@ -62,7 +61,7 @@ namespace LEDStreifen {
 
 		fussraumH = 20;
 		fussraumS = 0.95;
-		fussraumV = min( 1.0, (1.0 - ((double)((int)JoystickAxes[5] + 0x8000) / (double)0xFFFF)) * 1.2 );
+		fussraumV = 1.0;
 
 		fussraum = hsv2rgb( fussraumH, fussraumS, fussraumV );
 
